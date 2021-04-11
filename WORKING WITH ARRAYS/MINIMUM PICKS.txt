@@ -1,0 +1,14 @@
+int Solution::solve(vector<int> &A) {
+    int n=A.size();
+    int max_even=INT_MIN;
+    int min_odd=INT_MAX;
+    for(int i=0;i<n;i++){
+        if(A[i]%2==0){
+            max_even=max(max_even,A[i]);
+        }
+       else{
+           min_odd=min(min_odd,A[i]);
+       }
+    }
+    return max_even-min_odd;
+}
