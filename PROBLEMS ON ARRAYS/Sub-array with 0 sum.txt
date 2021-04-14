@@ -1,0 +1,16 @@
+int Solution::solve(vector<int> &A) {
+    set <long long> st;
+    int n=A.size();  //2,-1,-1,3
+    long long sum=0;
+    int i;
+    for(i=0;i<n;i++){
+        sum+=A[i];
+        if(st.count(sum) || sum==0){
+            return 1;
+            
+        }
+        st.insert(sum);
+    }
+    return 0;
+    
+}

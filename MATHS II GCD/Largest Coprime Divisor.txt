@@ -1,0 +1,15 @@
+int GCD(int x,int y){
+    if(x==0){
+        return y;
+    }
+    else{
+        return GCD(y%x,x);
+    }
+}
+int Solution::cpFact(int A, int B) {
+    while(GCD(A,B)!=1){
+        int p=GCD(A,B);
+        A=A/p;
+    }
+    return A;
+}

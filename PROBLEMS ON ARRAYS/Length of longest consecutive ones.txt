@@ -1,0 +1,64 @@
+int Solution::solve(string A) {
+    int n=A.size();
+    vector<int> left(n);
+    vector<int> right(n);
+    int streak=0;
+    int m=0;
+    int ones=0;
+    for(int i=0;i<n;i++){ // left preprocessed array
+        if(A[i]=='1'){
+            streak++;
+            ones++;
+        }
+        else{
+            streak=0;
+        }
+        left[i]=streak;
+        m=max(left[i],m);
+    }
+    
+    streak=0;
+    for(int i=n-1;i>=0;i--){  // right preprocessed array
+        if(A[i]=='1'){
+            streak++;
+        }
+        else{
+            streak=0;
+        }
+        right[i]=streak;
+    }
+    int ans=m;
+    
+    for(int i=0;i<n;i++){
+        if(A[i]=='0'){
+            if(i==0){
+                if(right[i+1]==ones){
+                    ans=max(ans,right[i+1]);
+                }
+                else{
+                    ans=max(ans,right[i+1]+1);
+                }
+            }
+            else if (i==n-1){
+                if(left[i-1]==ones){
+                    ans=max(ans,left[i-1]);
+                }
+                else{
+                    ans=max(ans,left[i-1]+1);
+                }
+            
+            }
+            else{
+                int lrsum=left[i-1]+right[i+1];
+                if(lrsum==ones){
+                    ans=max(ans,lrsum);
+                }
+                else{
+                    ans=max(ans,lrsum+1);
+                }
+            }
+        }
+    }
+    return ans;
+    
+}

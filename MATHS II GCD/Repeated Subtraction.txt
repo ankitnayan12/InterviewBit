@@ -1,0 +1,16 @@
+int gcd(int p,int q){
+    if(p==0){
+        return q;
+    }
+    else{
+        return gcd(q%p,p);
+    }
+}
+int Solution::getFinal(int A, int B) {
+    if(A==0 || B==0){
+        return A+B;
+    }
+    else{
+        return 2*gcd(A,B);
+    }
+}

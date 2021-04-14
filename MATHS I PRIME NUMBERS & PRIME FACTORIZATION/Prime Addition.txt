@@ -1,0 +1,8 @@
+int Solution::solve(int A) {
+    if(A==2){
+        return 1;
+    }
+    else{
+        return 2;
+    }
+}

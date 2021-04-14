@@ -1,0 +1,26 @@
+int Solution::solve(vector<int> &A) {
+    int n=A.size();
+    int i;
+    int ans1=INT_MAX; // Finding min no from array
+    int ans2=INT_MIN;
+    for(i=0;i<n;i++){
+        ans1=min(A[i],ans1);
+        ans2=max(A[i],ans2);
+    }
+    
+    int ans=INT_MAX;
+    int min_i=-1;
+    int max_i=-1;
+    for(i=0;i<n;i++){
+        if(A[i]==ans1){
+            min_i=i;
+        }
+        if(A[i]==ans2){
+            max_i=i;
+        }
+        if(min_i!=-1 && max_i!=-1){
+            ans=min(ans,abs(min_i-max_i)+1);
+        }
+    }
+    return ans;
+}

@@ -1,0 +1,20 @@
+vectorint Solutionsolve(int n, vectorvectorint  &B) {
+    vector int Arr(n+1,0);
+    int i;
+    int N=B.size();
+    for(i=0;iN;i++){
+        int a=B[i][0];
+        int b=B[i][1];
+        int x=B[i][2];
+        Arr[a-1]+=x;
+        Arr[b]-=x;
+    }
+    int sum=0;
+    vectorint ans;
+    for(i=0;in;i++){
+        sum=sum+Arr[i];
+        ans.push_back(sum);
+    }
+    return ans;
+    
+}

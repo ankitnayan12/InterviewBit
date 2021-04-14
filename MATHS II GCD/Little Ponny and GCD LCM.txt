@@ -1,0 +1,25 @@
+int GCD(int x,int y){ // gcd
+    if(x==0){
+        return y;
+    }
+    else{
+        return GCD(y%x,x);
+    }
+}
+
+
+vector<int> Solution::solve(int A, int B) {
+    vector<int> ans;
+    int x;
+    int p=A*B;
+    for(x=1;x<=B;x++){
+        if(B%A==0){
+            ans.push_back(A);
+            ans.push_back(B);
+            return ans;
+        }
+    }
+    ans.push_back(-1);
+    ans.push_back(-1);
+    return ans;
+}

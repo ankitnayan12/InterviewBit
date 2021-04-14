@@ -1,0 +1,31 @@
+int Solution::solve(int range) {
+    int ans=0;
+    for(int A=1;A<=range;A++){
+        int count=0;
+        int temp=A;
+        if(temp%2==0){
+            while(temp%2==0){
+                temp=temp/2;
+            }
+            count++;
+        }
+        for(int f=3;f<=sqrt(temp);f+=2){
+            if(temp%f==0){
+                while(temp%f==0){
+                    temp=temp/f;
+                }
+                count++;
+                if(count>2){
+                    break;
+                }
+            }
+        }
+        if(temp>2){
+            count++;
+        }
+        if(count==2){
+            ans++;
+        }
+    }
+    return ans;
+}

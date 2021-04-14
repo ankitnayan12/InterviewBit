@@ -1,0 +1,9 @@
+int Solution::solve(int A, int B, int C) {
+    int sum=A+B+C;
+    if(sum==180){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
