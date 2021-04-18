@@ -1,0 +1,23 @@
+/*
+Definition for TreeNode.
+struct TreeNode {
+    int val;
+    int depth;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), depth(-1), left(NULL), right(NULL) {}
+};
+*/
+
+void depthnode(TreeNode* A,int d){
+    A->depth=d;
+    if(A->left!=NULL){
+        depthnode(A->left,d+1);
+    }
+    if(A->right!=NULL){
+        depthnode(A->right,d+1);
+    }
+}
+void solve(TreeNode* A){
+    depthnode(A,1);
+}

@@ -1,0 +1,18 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+int Solution::solve(TreeNode* A) {
+    if(A==NULL){
+        return 0;
+    }
+    int left_height=solve(A->left);
+    int right_height=solve(A->right);
+    int ans=1+max(left_height,right_height);
+    return ans;
+}
